@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RAG Query</title>
+</head>
+<body>
+    <h1>Ask a Question</h1>
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="query" placeholder="Enter your query" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if response %}
+        <h2>Response:</h2>
+        <p>{{ response }}</p>
+    {% endif %}
+
+    {% if error %}
+        <h2 style="color: red;">{{ error }}</h2>
+    {% endif %}
+</body>
+</html>
